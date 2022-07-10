@@ -1,6 +1,6 @@
 import { TextField, InputAdornment } from "@mui/material";
 
-function App({
+export default function NumberField({
   id,
   label,
   value,
@@ -17,6 +17,12 @@ function App({
       id={id}
       label={label}
       value={value}
+      onBlur={(e) => {
+        if (isFloat) {
+          e.target.value = value;
+          onChange(e);
+        }
+      }}
       onChange={onChange}
       error={error}
       helperText={helperText}
@@ -31,11 +37,8 @@ function App({
         ),
       }}
       inputProps={{
-        inputMode: "numeric",
         step: isFloat ? "0.01" : "1",
       }}
     />
   );
 }
-
-export default App;

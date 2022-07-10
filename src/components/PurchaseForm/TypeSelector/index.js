@@ -15,6 +15,7 @@ function TypeSelector({ id, label, onChange, error, helperText }) {
         labelId={`${id}-label`}
         defaultValue=""
         onChange={onChange(id)}
+        sx={{ textAlign: "left" }}
       >
         <MenuItem value="capacitor">Capacitor</MenuItem>
         <MenuItem value="resistor">Resistor</MenuItem>

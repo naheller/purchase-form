@@ -1,5 +1,4 @@
-import PurchaseForm from './components/PurchaseForm';
-import './App.css';
+import PurchaseForm from "./components/PurchaseForm";
 
 function App() {
   return (
