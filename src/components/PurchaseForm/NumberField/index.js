@@ -18,10 +18,8 @@ export default function NumberField({
       label={label}
       value={value}
       onBlur={(e) => {
-        if (isFloat) {
-          e.target.value = value;
-          onChange(e);
-        }
+        e.target.value = value;
+        onChange(e);
       }}
       onChange={onChange}
       error={error}

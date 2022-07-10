@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useFormik } from "formik";
 import { Box, Button, Container, Typography } from "@mui/material";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import * as yup from "yup";
 
 import TypeSelector from "./TypeSelector";
@@ -30,7 +31,7 @@ const validationSchema = yup
     tolerance: yup
       .number()
       .positive()
-      .max(1)
+      .max(0.99)
       .required()
       .test("is-decimal", "must be a decimal value", (value) =>
         (value + "").match(/^(\d*\.)\d+$/)
@@ -39,7 +40,7 @@ const validationSchema = yup
     temperature_coefficient: yup
       .number()
       .positive()
-      .max(1)
+      .max(0.99)
       .required()
       .test("is-decimal", "must be a decimal value", (value) =>
         (value + "").match(/^(\d*\.)\d+$/)
@@ -70,8 +71,17 @@ export default function PurchaseForm() {
   return (
     <Container maxWidth="xs">
       <Box sx={style}>
-        <Typography variant="h5" component="h1">
-          Purchase Form
+        <Typography
+          variant="h6"
+          component="h1"
+          mb={2}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <ShoppingCartIcon sx={{ marginRight: "0.5rem" }} />
+          Breadboard Purchase Form
         </Typography>
         <form onSubmit={handleSubmit} style={{ marginTop: "0.5rem" }}>
           <TypeSelector
